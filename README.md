@@ -5,9 +5,11 @@ So most combinations are possible: 2B, 2C, 1A, 3D, etc.
 
 # Core Scenarios
 ## 1 - Simple serverless cross-region deployment pipeline
-For this scenario you will need three things:
+For this scenario you will need four things:
 1. Github (or BitBucket, Private Gitlab) project with a working Dockerfile. The [Kuard](https://github.com/kubernetes-up-and-running/kuard) project might be a good idea to start with for example. 
 2. A Managed Kubernetes Cluster on Alibaba Cloud in *Shanghai* region. Check out our documentation at https://www.alibabacloud.com/help/doc-detail/95108.htm on how to create a cluster through the web console. Check out https://www.alibabacloud.com/help/doc-detail/86378.htm for information on how to configure `kubectl` to access your cluster. 
+3. An existing Kubernetes Deployment object in your cluster (you need to create it by yourself!) that allows you to create a trigger for a redeployment. This trigger can then be used by your container registry (see 4.).
+4. An [Alibaba Cloud Container Registry](https://www.alibabacloud.com/help/doc-detail/60945.htm) with the right build and trigger configuration. Check out our documentation at https://www.alibabacloud.com/help/doc-detail/60997.htm
 
 **HINT**: You can also use [Alibaba Cloud Shell](https://www.alibabacloud.com/help/doc-detail/90256.htm) to have a pre-configured shell that let's you instantly work with `kubectl`. 
 
