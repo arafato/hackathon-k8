@@ -28,7 +28,7 @@ TODO
 
 # Did you know...?
 - that you can use [Alibaba Cloud Shell](https://www.alibabacloud.com/help/doc-detail/90256.htm) and launch it with a pre-configured version of `kubectl`? See below screenshot on where to find this nice feature:
-![alt text](https://github.com/arafato/hackathon-k8/raw/master/imgk8-cloudshell.png "Cloud Shell")
+![alt text](https://github.com/arafato/hackathon-k8/raw/master/img/k8-cloudshell.png "Cloud Shell")
 
 # Tools and General Links
 This section contains a list of general resources and links to tools you may find useful to accomplish the tasks.
