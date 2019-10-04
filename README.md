@@ -32,7 +32,7 @@ Make sure to configure two different features:
 TODO
 
 # Bonus Tasks
-## A - Supporting Branching Workflow
+## A - Branching Workflow Support
 TODO
 ## B - Reduce cost with Serverless K8 / Virtual Kubelets
 TODO
