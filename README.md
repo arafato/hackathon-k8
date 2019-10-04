@@ -36,6 +36,6 @@ https://github.com/aliyun/aliyun-cli
 **Terraform for Alibaba Cloud** - Documentation of the Alibaba Cloud Resource Provider<br> 
 https://www.terraform.io/docs/providers/alicloud/
 
-**Alibaba Cloud Documentation** - Official Alibaba Cloud documentation<br>  
+**Alibaba Cloud Documentation** - Official Alibaba Cloud documentation<br>
 https://www.alibabacloud.com/help
 
