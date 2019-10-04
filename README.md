@@ -20,3 +20,22 @@ TODO
 TODO
 ## D - Use P2P Acceleration to increase download efficiency of images
 TODO
+
+# Tools and General Links
+This section contains a list of general resources and links to tools you may find useful to accomplish the tasks.
+
+**Kubectl** - CLI for controlling the K8 cluster manager<br>
+https://kubernetes.io/docs/tasks/tools/install-kubectl/
+
+**Docker Desktop for Mac / Windows** - The Docker CLI and runtime<br>
+https://hub.docker.com/?overlay=onboarding
+
+**Aliyun CLI** - The official Alibaba Cloud CLI<br>
+https://github.com/aliyun/aliyun-cli
+
+**Terraform for Alibaba Cloud** - Documentation of the Alibaba Cloud Resource Provider<br> 
+https://www.terraform.io/docs/providers/alicloud/
+
+**Alibaba Cloud Documentation** - Official Alibaba Cloud documentation<br>  
+https://www.alibabacloud.com/help
+
