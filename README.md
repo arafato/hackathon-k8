@@ -63,9 +63,9 @@ In this scenario we will use a Serverless Kubernetes cluster to deploy our workl
 
 **Watch out**: Since Serverless Kubernetes is not available yet in UK region we need to cheat a little bit. We will simply replace our *Shanghai*-based cluster with a Serverless Kubernetes cluster. Also keep in mind that Elastic Container Instances which Virtual Kubelet is depending on is also not available yet in *UK* as well so unfortunately you cannot use it either.
 
-1. Create a new Serverless Kubernetes Cluster in *Shanghai* region. Please refer to https://www.alibabacloud.com/help/doc-detail/86366.htm for details and further information on the concepts.
+1. Create a new Serverless Kubernetes Cluster in *Shanghai* region. Please refer to https://www.alibabacloud.com/help/doc-detail/86366.htm for details and further information on the concepts. Alternatively, you can also install the Helm chart `ack-virtual-node` from our App Catalog which will add serverless capabilities to your existing cluster. Please refer to https://github.com/virtual-kubelet/alibabacloud-eci and https://github.com/virtual-kubelet/virtual-kubelet for detailed information.
 2. Modify your trigger tasks of your *Shanghai* based registry to deploy into the newly created Serverless Cluster.
- 
+
 ## C - Observability: Integration with Cloud Monitoring services
 TODO
 ## D - Use P2P Acceleration to increase download efficiency of images
@@ -74,6 +74,8 @@ TODO
 # Did you know...?
 - that you can use [Alibaba Cloud Shell](https://www.alibabacloud.com/help/doc-detail/90256.htm) and launch it with a pre-configured version of `kubectl`? See below screenshot on where to find this nice feature:
 ![alt text](https://github.com/arafato/hackathon-k8/raw/master/img/k8-cloudshell.png "Cloud Shell")
+- that the App Catalog of our Container Service features many Helm Charts that can be simply installed through a built-in graphical user interface? See https://www.alibabacloud.com/help/doc-detail/64282.htm for details.
+![alt text](https://github.com/arafato/hackathon-k8/raw/master/img/appcatalog.png "App Catalog")
 
 # Tools and General Links
 This section contains a list of general resources and links to tools you may find useful to accomplish the tasks.
