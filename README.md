@@ -59,7 +59,13 @@ Whenever a new check-in happens at the `master` branch a new image should be bui
 Make sure to account for the branching workflow and change the existing build and trigger onfiguration accordingly which can be either based on tags and/or on branches. Make sure to pull from the VPC-endpoint to save on outbound internet bandwidth. Check out our documentation at https://www.alibabacloud.com/help/doc-detail/60997.htm
     
 ## B - Reduce cost with Serverless K8 / Virtual Kubelets
-TODO
+In this scenario we will use a Serverless Kubernetes cluster to deploy our workloads to reduce costs of our testing environment. In a Serverless cluster you are not billed based on the amount of worker nodes but based on the seconds your individual pods run. For short run jobs or dev/test scenarios this can lead to significant cost savings. Furthermore it completely frees you from any operational and maintenance burden you usually have with worker node clusters.
+
+**Watch out**: Since Serverless Kubernetes is not available yet in UK region we need to cheat a little bit. We will simply replace our *Shanghai*-based cluster with a Serverless Kubernetes cluster. Also keep in mind that Elastic Container Instances which Virtual Kubelet is depending on is also not available yet in *UK* as well so unfortunately you cannot use it either.
+
+1. Create a new Serverless Kubernetes Cluster in *Shanghai* region. Please refer to https://www.alibabacloud.com/help/doc-detail/86366.htm for details and further information on the concepts.
+2. Modify your trigger tasks of your *Shanghai* based registry to deploy into the newly created Serverless Cluster.
+ 
 ## C - Observability: Integration with Cloud Monitoring services
 TODO
 ## D - Use P2P Acceleration to increase download efficiency of images
