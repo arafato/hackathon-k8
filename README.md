@@ -69,7 +69,8 @@ In this scenario we will use a Serverless Kubernetes cluster to deploy our workl
 ## C - Observability: Integration with Cloud Monitoring services
 TODO
 ## D - Use P2P Acceleration to increase download efficiency of images
-TODO
+![alt text](https://github.com/arafato/hackathon-k8/raw/master/img/b4.png "P2P Acceleration")
+
 
 # Did you know...?
 - that you can use [Alibaba Cloud Shell](https://www.alibabacloud.com/help/doc-detail/90256.htm) and launch it with a pre-configured version of `kubectl`? See below screenshot on where to find this nice feature:
