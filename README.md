@@ -70,7 +70,12 @@ In this scenario we will use a Serverless Kubernetes cluster to deploy our workl
 TODO
 ## D - Use P2P Acceleration to increase download efficiency of images
 ![alt text](https://github.com/arafato/hackathon-k8/raw/master/img/b4.png "P2P Acceleration")
+In this bonus task you will modify your cluster to make use of the peer-to-peer functionality of Alibaba Cloud Container Registry Enterprise Edition to improve the large-scale container image distribution capability and experience extremely fast image pulling. Usually, you won't notice any performance difference unless you have hundreds or thousands of nodes concurrently pulling images. Alibaba is using this technology internally for their own large-scale deployments. It is based on [Dragonfly](https://d7y.io). 
 
+1. The current P2P acceleration plug-in supports only Dedicated Kubernetes and multi-zone Kubernetes clusters. It does not support Managed Kubernetes clusters. So make sure to launch a Dedicated cluster in *Shanghai* region and adapt the existing build and trigger tasks.
+
+2. Follow the detailed instruction set on the web console when selecting the P2P Acceleration feature of the Continer Registry in *Shanghai*. 
+![alt text](https://github.com/arafato/hackathon-k8/raw/master/img/p2p.png "P2P Acceleration instructions")
 
 # Did you know...?
 - that you can use [Alibaba Cloud Shell](https://www.alibabacloud.com/help/doc-detail/90256.htm) and launch it with a pre-configured version of `kubectl`? See below screenshot on where to find this nice feature:
