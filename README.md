@@ -43,7 +43,21 @@ TODO
 
 # Bonus Tasks
 ## A - Branching Workflow Support
-TODO
+![alt text](https://github.com/arafato/hackathon-k8/raw/master/img/b1.png "Branching Workflow")
+In this bonus task you will extend your existing environment with support for a branching workflow. That is depending on the branch or a tag of a new check-in you will trigger different build and deployment actions that might target different Kubernetes clusters and/or Kubernets Deployments in different regions.
+
+An inital idea here is to introduce two branches: `dev` and `master`. Whenever a new check-in happens at the `dev` branch a new image should be built whose tag contains the string *dev*. Images tagged like that are to be deployed into the dev cluster in *UK* region.
+
+Whenever a new check-in happens at the `master` branch a new image should be built whose tag contains the string *prod*. Immages tagged like that should be replicated over to the registry instance in *Shanghai* and automatically deployed there in the production cluster. Of course, feel free to implement a different branching worflow according to your specific needs and ideas!
+
+1. You will need an additional Kubernetes cluster in *UK* which will serve as your testing ennvironment. Your existing Kubernetes Cluster in *Shanghai* will serve as your production cluster. Check out our documentation at https://www.alibabacloud.com/help/doc-detail/95108.htm on how to create a cluster through the web console. Check out https://www.alibabacloud.com/help/doc-detail/86378.htm for information on how to configure `kubectl` to access your cluster.<br> 
+**HINT**: You can also use [Alibaba Cloud Shell](https://www.alibabacloud.com/help/doc-detail/90256.htm) to have a pre-configured shell that let's you instantly work with `kubectl`. 
+
+2. Make sure to also create an according Kubernetes Deployment object in your testing cluster in *UK* that allows you to create a trigger for a redeployment. This trigger can then be used by your container registry in *UK*. 
+
+3. You will need two Alibaba Cloud Container Registries (ACR) *Enterprise Edition Basic Version* for cross-region image replication over our private backbone network: one in our *UK* (`eu-west-1`) region, one in our *Shanghai* (`cn-shanghai`) region.
+Make sure to account for the branching workflow and change the existing build and trigger onfiguration accordingly which can be either based on tags and/or on branches. Make sure to pull from the VPC-endpoint to save on outbound internet bandwidth. Check out our documentation at https://www.alibabacloud.com/help/doc-detail/60997.htm
+    
 ## B - Reduce cost with Serverless K8 / Virtual Kubelets
 TODO
 ## C - Observability: Integration with Cloud Monitoring services
