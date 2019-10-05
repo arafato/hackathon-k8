@@ -7,7 +7,11 @@ Each section will list a couple of resources, links, and services we recommend t
 
 # Core Scenarios
 ## 1 - Simple serverless cross-region deployment pipeline
-1. You'll need a Github (or BitBucket, Private Gitlab) project with a working Dockerfile that contains an app or a service that provides some sort of web interface. The [Kuard](https://github.com/kubernetes-up-and-running/kuard) project might be a good idea to start with for example. 
+In this scenario you will learn how to set up a simple continuous deployment pipeline between Mainland China and an overseas (i.e. outside of Mainland China) public Git repository provider such as Github.
+
+Code artificats such as binaries and docker images are being built overseas and then copied over to an Alibaba Cloud Container Registry instance in Shanghai over public internet. It is then automatically deployed to the Kubernetes cluster.
+
+1. You'll need a Github (or BitBucket, Private Gitlab) project with a working Dockerfile that contains an app or a service that provides some sort of web interface. The [Kuard](https://github.com/kubernetes-up-and-running/kuard) project might be a good starting point for example, but feel free to bring your own project! 
 
 2. A Managed Kubernetes Cluster on Alibaba Cloud in *Shanghai* (`cn-shanghai`) region. Check out our documentation at https://www.alibabacloud.com/help/doc-detail/95108.htm on how to create a cluster through the web console. Check out https://www.alibabacloud.com/help/doc-detail/86378.htm for information on how to configure `kubectl` to access your cluster.<br> 
 **HINT**: You can also use [Alibaba Cloud Shell](https://www.alibabacloud.com/help/doc-detail/90256.htm) to have a pre-configured shell that let's you instantly work with `kubectl`. 
@@ -16,6 +20,11 @@ Each section will list a couple of resources, links, and services we recommend t
 4. An [Alibaba Cloud Container Registry](https://www.alibabacloud.com/help/doc-detail/60945.htm) with the right build and trigger configuration. Make sure to pull from the VPC-endpoint to save on outbound internet bandwidth. Check out our documentation at https://www.alibabacloud.com/help/doc-detail/60997.htm
 
 ## 2 - Reliable geo-redundant serverless cross-region deployment pipeline
+
+In this scenario you will learn how to set up and configure a reliable and geo-redundant deployment pipeline between our *Shanghai* region and our *UK* region.
+
+The binaries and docker images are being built and pushed to the Alibaba Cloud Container Registry instance in *UK*. The docker image is then asynchronously replicated over our private backbone network to a registry instance in *Shanghai* where the image is then automatically deployed to the Kubernetes cluster.
+
 1. You'll need a Github (or BitBucket, Private Gitlab) project with a working Dockerfile that contains an app or a service that provides some sort of web interface. The [Kuard](https://github.com/kubernetes-up-and-running/kuard) project might be a good idea to start with for example.
 
 2. A Managed Kubernetes Cluster on Alibaba Cloud in *Shanghai* (`cn-shanghai`) region. Check out our documentation at https://www.alibabacloud.com/help/doc-detail/95108.htm on how to create a cluster through the web console. Check out https://www.alibabacloud.com/help/doc-detail/86378.htm for information on how to configure `kubectl` to access your cluster.<br> 
