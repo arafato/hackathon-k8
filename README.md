@@ -7,6 +7,7 @@ Each section will list a couple of resources, links, and services we recommend t
 
 # Core Scenarios
 ## 1 - Simple serverless cross-region deployment pipeline
+![alt text](https://github.com/arafato/hackathon-k8/raw/master/img/s1.png "Simple CD Pipeline")
 In this scenario you will learn how to set up a simple continuous deployment pipeline between Mainland China and an overseas (i.e. outside of Mainland China) public Git repository provider such as Github.
 
 Code artificats such as binaries and docker images are being built overseas and then copied over to an Alibaba Cloud Container Registry instance in Shanghai over public internet. It is then automatically deployed to the Kubernetes cluster.
@@ -20,7 +21,7 @@ Code artificats such as binaries and docker images are being built overseas and 
 4. An [Alibaba Cloud Container Registry](https://www.alibabacloud.com/help/doc-detail/60945.htm) with the right build and trigger configuration. Make sure to pull from the VPC-endpoint to save on outbound internet bandwidth. Check out our documentation at https://www.alibabacloud.com/help/doc-detail/60997.htm
 
 ## 2 - Reliable geo-redundant serverless cross-region deployment pipeline
-
+![alt text](https://github.com/arafato/hackathon-k8/raw/master/img/s2.png "Geo-redundant CD Pipeline")
 In this scenario you will learn how to set up and configure a reliable and geo-redundant deployment pipeline between our *Shanghai* region and our *UK* region.
 
 The binaries and docker images are being built and pushed to the Alibaba Cloud Container Registry instance in *UK*. The docker image is then asynchronously replicated over our private backbone network to a registry instance in *Shanghai* where the image is then automatically deployed to the Kubernetes cluster.
