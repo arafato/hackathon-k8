@@ -83,6 +83,45 @@ In this bonus task you will modify your cluster to make use of the peer-to-peer 
 - that the App Catalog of Alibaba Cloud Container Service features many Helm Charts that can be simply installed through a built-in graphical user interface? See https://www.alibabacloud.com/help/doc-detail/64282.htm for details.
 ![alt text](https://github.com/arafato/hackathon-k8/raw/master/img/appcatalog.png "App Catalog")
 
+# Authorization
+There are two authorization layers in our container service:
+
+1) One for our Cloud Management APIs of ContainerService. This includes to list all clusters, add nodes, etc. This is managed by RAM.
+2) One for managing access to the K8 API Server: this includes for example rights to list pods, create deployments, etc. This is managed by Kubernetes RBAC.
+
+Per default, only the root user of an account has a so-called `ClusterRoleBinding` to the cluster role `cluster-admin` that gives admin access to the K8 API Server. No RAM-user has any RBAC authorization, per default. It must be added explicitly. Unless you do that many actions also on the web-console will not work.
+
+There are two ways how to configure RBAC for RAM-users:
+
+1) Through the Alibaba Clud Container Servce web-console under the *Authorization*. You need to be logged-in as root-account or with a RAM user that has already been granted the `cluster-admin` role. There you can grant individual RAM-users pre-defined RBAC roles.
+![alt text](https://github.com/arafato/hackathon-k8/raw/master/img/rbac.png "RBAC")
+
+2) Through `kubectl` directly. Create a file with below content and replace the marked fields `metadata.name` with a unique name of your choice, and the field `subjects[*].name` with the UID of the RAM user. You can find this UID either in the RAM web console by clicking on the username or by invoking the *Aliyun CLI* like so:  `$ aliyun ram ListUsers`
+and looking at the `userid` field.
+Then
+```
+$ kubectl apply -f <filename>
+# filename contents
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: <your custom rolebindingname>
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  # Can be any of the other roles described below
+  name: cluster-admin  
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: "<add RAM UID here"
+```
+
+The following pre-defined roles are available (see web-console description for details of authorization scope):
+- `cluster-admin`
+- `cs:ops`
+- `cs-dev`
+
 # Tools and General Links
 This section contains a list of general resources and links to tools you may find useful to accomplish the tasks.
 
