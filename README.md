@@ -120,7 +120,7 @@ subjects:
 The following pre-defined roles are available (see web-console description for details of authorization scope):
 - `cluster-admin`
 - `cs:ops`
-- `cs-dev`
+- `cs:dev`
 
 # Tools and General Links
 This section contains a list of general resources and links to tools you may find useful to accomplish the tasks.
