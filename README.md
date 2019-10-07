@@ -86,8 +86,8 @@ In this bonus task you will modify your cluster to make use of the peer-to-peer 
 # Authorization
 There are two authorization layers in our container service:
 
-1) One for our Cloud Management APIs of ContainerService. This includes to list all clusters, add nodes, etc. This is managed by RAM.
-2) One for managing access to the K8 API Server: this includes for example rights to list pods, create deployments, etc. This is managed by Kubernetes RBAC.
+1) One for our Cloud Management APIs of ContainerService. This includes authorization to list all clusters, to add nodes, etc. This is managed by Alibaba Cloud Resource Access Management (RAM).
+2) One for managing access to the Kubernetes API Server: this includes for example rights to list pods, create deployments, etc. This is managed by Kubernetes RBAC.
 
 Per default, only the root user of an account has a so-called `ClusterRoleBinding` to the cluster role `cluster-admin` that gives admin access to the K8 API Server. No RAM-user has any RBAC authorization, per default. It must be added explicitly. Unless you do that many actions also on the web-console will not work.
 
