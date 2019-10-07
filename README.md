@@ -98,7 +98,7 @@ There are two ways how to configure RBAC for RAM-users:
 
 2) Through `kubectl` directly. Create a file with below content and replace the marked fields `metadata.name` with a unique name of your choice, and the field `subjects[*].name` with the UID of the RAM user. You can find this UID either in the RAM web console by clicking on the username or by invoking the *Aliyun CLI* like so:  `$ aliyun ram ListUsers`
 and looking at the `userid` field.
-Then
+Then create the new authorization object in the cluster like so:
 ```
 $ kubectl apply -f <filename>
 # filename contents
